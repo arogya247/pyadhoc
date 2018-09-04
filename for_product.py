@@ -6,3 +6,4 @@ product=1
 for i in user_input:
 	product=product*int(i)
 	print (product)
+	time.sleep(1)
