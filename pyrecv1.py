@@ -1,4 +1,4 @@
-
+import matplotlib.pyplot as plt
 import socket
 #we are looking for UDP(user data protocol)
 #        ip_version4,UDP
@@ -12,8 +12,47 @@ s.bind((ip,port))
 
 
 #receiving data from target machine
-while 4>2:
-	x=s.recvfrom(100)
-	print("Message is:",x[0])
-s.close()
+v=s.recvfrom(100)
+a=v[0]
+print("Message is:",a)
+
+
+# Python program to count the number of occurrence  
+def word_count(str):
+    counts = dict()
+    words = str.split()
+
+    for word in words:
+        if word in counts:
+            counts[word] += 1
+        else:
+            counts[word] = 1
+
+    return counts
+
+print( word_count(a))
+
+
+
+#plotting graph out of dict
+#use ticks as x list is of string type
+
+xticks=list(word_count(a).keys())
+print (xticks)
+
+y=list(word_count(a).values())
+print (y)
+
+x=range(len(xticks))
+
+#ticks used
+plt.xticks(x,xticks)
+#labelling
+plt.xlabel("Name of Word")
+plt.ylabel("Word Count")
+
+plt.title("My First Graph")
+plt.scatter(x,y)
+plt.plot(x,y)
+plt.show()
 
