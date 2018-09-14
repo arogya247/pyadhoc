@@ -7,5 +7,12 @@ port=7890
 
 while True:
 	cmd=raw_input()
+	a=commands.getoutput(cmd)
+	if "not found" in a:
+		print ("Invalid Command")
+		continue
+		
 	s.sendto(cmd,(ip,port))
+	
+
 	
